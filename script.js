@@ -44,21 +44,21 @@ const ghosts = [
     },
     {
         name: "Goryo",
-        characteristics: "Ne peut pas changer de pièce favorite (sauf si on utilise le vœu de santé mentale à la Patte de singe). Les D.O.T.S. ne sont visibles qu'à la caméra et si personne ne se trouve dans sa pièce.",
+        characteristics: "Ne peut pas changer de pièce favorite. Les D.O.T.S. ne sont visibles qu'à la caméra et si personne ne se trouve dans sa pièce.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 3,0 m/s (max)",
         evidence: "Orbes, Écriture, D.O.T.S."
     },
     {
         name: "Hantu",
-        characteristics: "Ne peut pas allumer le disjoncteur. Il n'accélère pas à la vue du joueur, mais uniquement à la température des pièces qu'il traverse.",
+        characteristics: "Ne peut pas allumer le disjoncteur. Il n'accélère pas à la vue du joueur.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Spirit Box, EMF 5."
     },
     {
         name: "Djinn",
-        characteristics: "Ne peut pas éteindre directement le disjoncteur. Si le disjoncteur est allumé, il peut drainer 25% de santé mentale à tous les joueurs à moins de 3 mètres ou dans la même pièce. Il n'accélère pas, mais passe à sa vitesse maximale instantanément à la vue du joueur, et ralentit à 2 m du joueur ou s'il le perd de vue.",
+        characteristics: "Ne peut pas éteindre directement le disjoncteur. Peut drainer 25% de santé mentale.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "2,0 m/s (base), 3,0 m/s (max)",
         evidence: "Orbes, Spirit Box, D.O.T.S."
@@ -79,42 +79,42 @@ const ghosts = [
     },
     {
         name: "Oni",
-        characteristics: "A tendance à beaucoup interagir, surtout avec des joueurs à proximité. Clignotement lent, il est visible plus souvent qu'invisible pendant les chasses.",
+        characteristics: "A tendance à beaucoup interagir avec les joueurs.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 3,0 m/s (max)",
         evidence: "Orbes, Spirit Box, EMF 5."
     },
     {
         name: "Cauchemar",
-        characteristics: "Ne peut pas allumer les lumières et les radios, mais peut allumer les téléviseurs, les ordinateurs et le disjoncteur. Peut éteindre une lumière instantanément qu'un joueur vient d'allumer à moins de 4 mètres d'elle.",
+        characteristics: "Ne peut pas allumer les lumières.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Spirit Box, EMF 5."
     },
     {
         name: "Jumeaux",
-        characteristics: "N'est en réalité qu'une seule entité. A la possibilité de faire une double interaction, l'une à moins de 3 mètres et l'autre à moins de 16 mètres. Deux vitesses différentes possibles pendant les chasses.",
+        characteristics: "Peut faire une double interaction.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Écriture, D.O.T.S."
     },
     {
         name: "Le Mimique",
-        characteristics: "Copie une autre entité et ses caractéristiques toutes les 30 à 120 secondes en dehors des chasses.",
+        characteristics: "Copie une autre entité et ses caractéristiques.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Spirit Box, EMF 5."
     },
     {
         name: "Thaye",
-        characteristics: "Toutes les 1 à 2 minutes, il tente de vieillir. Si un joueur se trouve dans sa pièce, son âge augmentera de 1. Sinon, il attend 30 secondes avant de tenter à nouveau.",
+        characteristics: "Vieillit avec le temps.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Écriture, D.O.T.S."
     },
     {
         name: "Onryo",
-        characteristics: "Tente une chasse dans un délai de 6 secondes chaque fois qu'il souffle 3 flammes. Les flammes empêchant les chasses et celles soufflées pendant les chasses comptent aussi.",
+        characteristics: "Tente une chasse après avoir soufflé 3 flammes.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Spirit Box, EMF 5."
@@ -128,7 +128,6 @@ const ghosts = [
     }
 ];
 
-
 const ghostsContainer = document.getElementById('ghosts-container');
 
 ghosts.forEach(ghost => {
@@ -139,16 +138,16 @@ ghosts.forEach(ghost => {
     title.textContent = ghost.name;
 
     const characteristics = document.createElement('p');
-    characteristics.textContent = `Caractéristiques: ${ghost.characteristics}`;
+    characteristics.innerHTML = `<strong>Caractéristiques :</strong> ${ghost.characteristics}`;
 
     const hunt = document.createElement('p');
-    hunt.textContent = `Chasse: ${ghost.hunt}`;
+    hunt.innerHTML = `<strong>Chasse :</strong> ${ghost.hunt}`;
 
     const speed = document.createElement('p');
-    speed.textContent = `Vitesse: ${ghost.speed}`;
+    speed.innerHTML = `<strong>Vitesse :</strong> ${ghost.speed}`;
 
     const evidence = document.createElement('p');
-    evidence.textContent = `Preuves: ${ghost.evidence}`;
+    evidence.innerHTML = `<strong>Preuves :</strong> ${ghost.evidence}`;
 
     card.appendChild(title);
     card.appendChild(characteristics);
