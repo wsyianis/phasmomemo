@@ -99,7 +99,7 @@ const ghosts = [
         evidence: "Orbes, Écriture, D.O.T.S."
     },
     {
-        name: "Le Mimique",
+        name: "Le Mimic",
         characteristics: "Copie une autre entité et ses caractéristiques.",
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
@@ -125,8 +125,29 @@ const ghosts = [
         hunt: "Chasse à partir de 50 % de santé.",
         speed: "1,5 m/s (base), 2,5 m/s (max)",
         evidence: "Orbes, Écriture, D.O.T.S."
-    }
-];
+    },
+    {
+       name: "Gallu",
+       characteristics: "Possède 3 états : Calme, Normal et Énervé. Change d’état avec le sel, l’encens et les crucifix. Plus actif et dangereux en état Énervé.",
+       hunt: "60% (énervé), 50% (normal), 40% (calme)",
+       speed: "1,36 m/s (calme), 1,70 m/s (normal), 1,96 m/s (énervé)",
+       evidence: "EMF 5, Ultraviolet, Spirit Box"
+    },
+    {
+       name: "Obambo",
+       characteristics: "Alterne entre Calme et Énervé toutes les 2 minutes. Très actif énervé, très passif calme.",
+       hunt: "65% (énervé), 10% (calme)",
+       speed: "1,45 m/s (calme), 1,96 m/s (énervé)",
+       evidence: "D.O.T.S, Écriture, Ultraviolet"
+    },
+    {
+      name: "La Dayan",
+      characteristics: "Fantôme féminin détectant les mouvements dans un rayon de 10m. Plus rapide si un joueur bouge près d’elle.",
+      hunt: "65% si mouvement, 45% immobile, sinon 50%",
+      speed: "1,2 m/s (lent), 1,7 m/s (base), 2,25 m/s (rapide)",
+      evidence: "EMF 5, Orbes, Spirit Box"
+     },
+     ];
 
 const ghostsContainer = document.getElementById('ghosts-container');
 
@@ -157,3 +178,30 @@ ghosts.forEach(ghost => {
 
     ghostsContainer.appendChild(card);
 });
+// AJOUTE ÇA TOUT EN BAS DE TON script.js
+
+const infoBox = document.createElement('div');
+infoBox.classList.add('info-box');
+
+infoBox.innerHTML = `
+    <h2>☠️ Infos Utiles ☠️</h2>
+
+    <p><strong>⏳ Temps entre 2 chasses :</strong> 25 secondes</p>
+
+    <p>
+        <strong>🕯️ Temps avec encens :</strong><br>
+        • 90 sec normal<br>
+        • 180 sec Esprit<br>
+        • 60 sec Démon
+    </p>
+
+    <p><strong>💨 Durée d’aveuglement de l’encens :</strong> 6 secondes</p>
+
+    <p>
+        <strong>🧠 Perte de santé mentale après un événement :</strong><br>
+        • 15% normal<br>
+        • 20% avec un Oni
+    </p>
+`;
+
+ghostsContainer.appendChild(infoBox);
