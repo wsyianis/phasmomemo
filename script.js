@@ -147,6 +147,41 @@ const ghosts = [
       speed: "1,2 m/s (lent), 1,7 m/s (base), 2,25 m/s (rapide)",
       evidence: "EMF 5, Orbes, Spirit Box"
      },
+     {
+        name: "Deogen",
+        characteristics: "Sait toujours où sont les joueurs.",
+        hunt: "Impossible de se cacher.",
+        speed: "3 m/s loin • 0,4 m/s proche",
+        evidence: "DOTS • Écriture • Spirit Box"
+    },
+    {
+        name: "Moroï",
+        characteristics: "Devient plus rapide quand la santé mentale baisse.",
+        hunt: "50%",
+        speed: "1,5 → 3,71 m/s",
+        evidence: "Écriture • Spirit Box • Température glaciale"
+    },
+    {
+        name: "Myling",
+        characteristics: "Très silencieux pendant les chasses.",
+        hunt: "50%",
+        speed: "1,7 m/s",
+        evidence: "Écriture • EMF 5 • Ultraviolet"
+    },
+    {
+        name: "Poltergeist",
+        characteristics: "Peut lancer énormément d'objets.",
+        hunt: "Très actif avec les objets.",
+        speed: "1,7 m/s",
+        evidence: "Écriture • Spirit Box • Ultraviolet"
+    },
+    {
+        name: "Raiju",
+        characteristics: "Plus rapide près des équipements électroniques.",
+        hunt: "65% près des appareils actifs",
+        speed: "2,5 m/s",
+        evidence: "DOTS • EMF 5 • Orbes"
+     }
      ];
 
 const ghostsContainer = document.getElementById('ghosts-container');
