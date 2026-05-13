@@ -3,19 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantômes de Phasmophobia</title>
+    <title>PHASMOMEMO</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Fantômes de Phasmophobia</h1>
-       <p class="subtilte">
-         toutes les informations des fantômes de phasmophobia
-       </p> 
-    </header>
-    <main>
-        <section id="ghosts-container"></section>
-    </main>
-    <script src="script.js"></script>
+
+<body class="home">
+
+    <div class="background-text" id="bg-text"></div>
+
+    <div class="center">
+
+        <h1 class="glitch">PHASMOMEMO</h1>
+        <p class="subtitle">Les esprits observent chaque mouvement...</p>
+
+        <div class="menu">
+            <a href="entities.html" class="btn">👻 Entités</a>
+            <a href="#" class="btn disabled">🔒 Objets maudits</a>
+        </div>
+
+    </div>
+
+<script>
+const ghostFacts = [
+    "Banshee : cible un seul joueur",
+    "Démon : chasse très tôt",
+    "Yurei : baisse la santé mentale",
+    "Revenant : devient rapide en vision",
+    "Deogen : connaît toujours la position",
+    "Ombre : faible activité",
+    "Oni : très agressif",
+    "Moroï : accélère avec peur",
+    "Raiju : boost appareils",
+    "Spectre : téléportation",
+    "Hantu : dépend du froid",
+    "Djinn : rapide si électricité",
+    "Myling : chasse silencieuse",
+    "Poltergeist : lance objets",
+    "Obake : change de forme"
+];
+
+const container = document.getElementById("bg-text");
+
+function createLine() {
+    const line = document.createElement("div");
+    line.classList.add("bg-line");
+
+    line.textContent = ghostFacts[Math.floor(Math.random() * ghostFacts.length)];
+
+    const fromLeft = Math.random() > 0.5;
+
+    line.style.top = Math.random() * 100 + "vh";
+    const speed = Math.random() * 5 + 9;
+    line.style.animationDuration = speed + "s";
+
+    line.style.opacity = (Math.random() * 0.3 + 0.2).toFixed(2);
+
+    if (fromLeft) line.classList.add("from-left");
+    else line.classList.add("from-right");
+
+    container.appendChild(line);
+
+    setTimeout(() => line.remove(), speed * 1000);
+}
+
+/* remplissage fort */
+for (let i = 0; i < 20; i++) {
+    setTimeout(createLine, i * 60);
+}
+
+setInterval(createLine, 160);
+
+/* glitch */
+setInterval(() => {
+    const title = document.querySelector(".glitch");
+    title.style.opacity = Math.random() > 0.94 ? 0.3 : 1;
+}, 200);
+</script>
+
 </body>
 </html>
